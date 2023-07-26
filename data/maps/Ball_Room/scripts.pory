@@ -1,0 +1,651 @@
+mapscripts Ball_Room_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: Ball_Room_EventScript_BallDefault
+}
+
+script Ball_Room_EventScript_BallDefault{
+    removeobject(6)
+    setvar(STARTER_REGION,0)
+    call(Common_EventScript_SetupRivalGfxId)
+}
+
+script Start_StarterChoose_Sequence {
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, MeetBirch)
+    waitmovement(0)
+    msgbox(BeginAdventureText)
+    waitmessage
+    closemessage
+    setvar(LITTLEROOT_STATE, 1)
+    release
+}
+
+script Start_StarterChoose_Sequence_Left {
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, MeetBirch2)
+    waitmovement(0)
+    goto(Start_StarterChoose_Sequence)
+}
+
+movement MeetBirch{
+    walk_up * 2
+}
+
+movement MeetBirch2 {
+    walk_right
+}
+
+script StopLeaving{
+    lockall
+    msgbox("You Need To Choose a Pokemon.")
+    applymovement(OBJ_EVENT_ID_PLAYER, DoNotLeave)
+    waitmovement(0)
+    releaseall
+}
+
+movement DoNotLeave{
+    walk_up
+}
+
+ 
+script Ball_Room_EventScript_Birch{
+     if(!(flag(FLAG_SYS_POKEMON_GET))){
+        lock
+        faceplayer
+        message("Would you like to see more?")
+        delay(240)
+        closemessage
+        multichoice(25, 1, MULTI_STARTER_CHOICE, 0)
+        if(var(VAR_RESULT) == 0){
+            call(StarterFade)
+            setvar(STARTER_REGION, 0)
+        }
+        elif(var(VAR_RESULT) == 1){
+            call(StarterFade)
+            setvar(STARTER_REGION, 1)
+        }
+        elif(var(VAR_RESULT) == 2){
+            call(StarterFade)
+            setvar(STARTER_REGION, 2)
+        }
+        elif(var(VAR_RESULT) == 3){
+            call(StarterFade)
+            setvar(STARTER_REGION, 3)
+        }
+        elif(var(VAR_RESULT) == 4){
+            call(StarterFade)
+            setvar(STARTER_REGION, 4)
+        }
+        elif(var(VAR_RESULT) == 5){
+            call(StarterFade)
+            setvar(STARTER_REGION, 5)
+        }
+        elif(var(VAR_RESULT) == 6){
+            call(StarterFade)
+            setvar(STARTER_REGION, 6)
+        }
+        elif(var(VAR_RESULT) == 7){
+            call(StarterFade)
+            setvar(STARTER_REGION, 7)
+        }
+        msgbox("Choose wisely...")
+        waitmessage
+        release
+     }
+     else{
+        msgbox("Take care of your Pokemon", MSGBOX_NPC)
+        }
+    end
+}
+ 
+script Ball_Room_EventScript_Ball1{
+    lockall
+    setvar(VAR_TEMP_0, 5)
+    if(!(flag(FLAG_SYS_POKEMON_GET))){
+        if(var(STARTER_REGION) == 0){
+            bufferspeciesname(STR_VAR_1, SPECIES_SQUIRTLE)
+            setvar(STARTER_CHOICE, SPECIES_SQUIRTLE)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 1){
+            bufferspeciesname(STR_VAR_1, SPECIES_TOTODILE)
+            setvar(STARTER_CHOICE, SPECIES_TOTODILE)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 2){
+            bufferspeciesname(STR_VAR_1, SPECIES_MUDKIP)
+            setvar(STARTER_CHOICE, SPECIES_MUDKIP)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 3){
+            bufferspeciesname(STR_VAR_1, SPECIES_PIPLUP)
+            setvar(STARTER_CHOICE, SPECIES_PIPLUP)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 4){
+            bufferspeciesname(STR_VAR_1, SPECIES_OSHAWOTT)
+            setvar(STARTER_CHOICE, SPECIES_OSHAWOTT)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 5){
+            bufferspeciesname(STR_VAR_1, SPECIES_FROAKIE)
+            setvar(STARTER_CHOICE, SPECIES_FROAKIE)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 6){
+            bufferspeciesname(STR_VAR_1, SPECIES_POPPLIO)
+            setvar(STARTER_CHOICE, SPECIES_POPPLIO)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 7){
+            bufferspeciesname(STR_VAR_1, SPECIES_SOBBLE)
+            setvar(STARTER_CHOICE, SPECIES_SOBBLE)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+    }
+    else{
+        msgbox("Don't Take Another")
+    }
+}
+ 
+script StarterFade{
+    fadescreen(FADE_TO_BLACK)
+    delay(20)
+    fadescreen(FADE_FROM_BLACK)
+    return
+}
+
+script Ball_Room_EventScript_Ball2{
+    lockall
+    setvar(VAR_TEMP_0, 3)
+    if(!(flag(FLAG_SYS_POKEMON_GET))){
+        if(var(STARTER_REGION) == 0){
+            bufferspeciesname(STR_VAR_1, SPECIES_BULBASAUR)
+            setvar(STARTER_CHOICE, SPECIES_BULBASAUR)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 1){
+            bufferspeciesname(STR_VAR_1, SPECIES_CHIKORITA)
+            setvar(STARTER_CHOICE, SPECIES_CHIKORITA)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 2){
+            bufferspeciesname(STR_VAR_1, SPECIES_TREECKO)
+            setvar(STARTER_CHOICE, SPECIES_TREECKO)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 3){
+            bufferspeciesname(STR_VAR_1, SPECIES_TURTWIG)
+            setvar(STARTER_CHOICE, SPECIES_TURTWIG)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 4){
+            bufferspeciesname(STR_VAR_1, SPECIES_SNIVY)
+            setvar(STARTER_CHOICE, SPECIES_SNIVY)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 5){
+            bufferspeciesname(STR_VAR_1, SPECIES_CHESPIN)
+            setvar(STARTER_CHOICE, SPECIES_CHESPIN)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 6){
+            bufferspeciesname(STR_VAR_1, SPECIES_ROWLET)
+            setvar(STARTER_CHOICE, SPECIES_ROWLET)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 7){
+            bufferspeciesname(STR_VAR_1, SPECIES_GROOKEY)
+            setvar(STARTER_CHOICE, SPECIES_GROOKEY)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+    }
+    else{
+        msgbox("Don't Take Another")
+    }
+}
+ 
+script Ball_Room_EventScript_Ball3{
+    lockall
+    setvar(VAR_TEMP_0, 2)
+    if(!(flag(FLAG_SYS_POKEMON_GET))){
+        if(var(STARTER_REGION) == 0){
+            bufferspeciesname(STR_VAR_1, SPECIES_CHARMANDER)
+            setvar(STARTER_CHOICE, SPECIES_CHARMANDER)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 1){
+            bufferspeciesname(STR_VAR_1, SPECIES_CYNDAQUIL)
+            setvar(STARTER_CHOICE, SPECIES_CYNDAQUIL)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 2){
+            bufferspeciesname(STR_VAR_1, SPECIES_TORCHIC)
+            setvar(STARTER_CHOICE, SPECIES_TORCHIC)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 3){
+            bufferspeciesname(STR_VAR_1, SPECIES_TORCHIC)
+            setvar(STARTER_CHOICE, SPECIES_TORCHIC)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 4){
+            bufferspeciesname(STR_VAR_1, SPECIES_TEPIG)
+            setvar(STARTER_CHOICE, SPECIES_TEPIG)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 5){
+            bufferspeciesname(STR_VAR_1, SPECIES_FENNEKIN)
+            setvar(STARTER_CHOICE, SPECIES_FENNEKIN)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 6){
+            bufferspeciesname(STR_VAR_1, SPECIES_LITTEN)
+            setvar(STARTER_CHOICE, SPECIES_LITTEN)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 7){
+            bufferspeciesname(STR_VAR_1, SPECIES_SCORBUNNY)
+            setvar(STARTER_CHOICE, SPECIES_SCORBUNNY)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+    }
+    else{
+        msgbox("Don't Take Another")
+    }
+}
+ 
+  
+script Ball_Room_EventScript_Ball4{
+    lockall
+    setvar(VAR_TEMP_0, 4)
+    if(!(flag(FLAG_SYS_POKEMON_GET))){
+        if(var(STARTER_REGION) == 0){
+            bufferspeciesname(STR_VAR_1, SPECIES_MEWTWO)
+            setvar(STARTER_CHOICE, SPECIES_MEWTWO)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 1){
+            bufferspeciesname(STR_VAR_1, SPECIES_SUICUNE)
+            setvar(STARTER_CHOICE, SPECIES_SUICUNE)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 2){
+            bufferspeciesname(STR_VAR_1, SPECIES_JIRACHI)
+            setvar(STARTER_CHOICE, SPECIES_JIRACHI)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 3){
+            bufferspeciesname(STR_VAR_1, SPECIES_SHAYMIN)
+            setvar(STARTER_CHOICE, SPECIES_SHAYMIN)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 4){
+            bufferspeciesname(STR_VAR_1, SPECIES_VICTINI)
+            setvar(STARTER_CHOICE, SPECIES_VICTINI)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 5){
+            bufferspeciesname(STR_VAR_1, SPECIES_DIANCIE)
+            setvar(STARTER_CHOICE, SPECIES_DIANCIE)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 6){
+            bufferspeciesname(STR_VAR_1, SPECIES_NECROZMA)
+            setvar(STARTER_CHOICE, SPECIES_NECROZMA)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+        elif(var(STARTER_REGION) == 7){
+            bufferspeciesname(STR_VAR_1, SPECIES_CALYREX)
+            setvar(STARTER_CHOICE, SPECIES_CALYREX)
+            call(Ball_Room_EventScript_GiveStarter)
+        }
+    }
+    else{
+        msgbox("Don't Take Another")
+    }
+}
+ 
+ script Ball_Room_EventScript_GiveStarter{
+    showmonpic(STARTER_CHOICE, 10, 3)
+    msgbox("Do you want to choose {STR_VAR_1}?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        setflag(FLAG_SYS_POKEMON_GET)
+        setvar(LITTLEROOT_STATE, 2)
+        givemon(STARTER_CHOICE, 5, ITEM_NONE)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved {STR_VAR_1}")
+            removeobject(VAR_TEMP_0)
+            call(SetBallFlag)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved {STR_VAR_1}")
+            removeobject(VAR_TEMP_0)
+            call(SetBallFlag)
+            call(NicknameBoxMon)    
+            msgbox("Transferred {STR_VAR_1} to PC")
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room For Pokemon")
+            closemessage
+        }
+        closemessage
+        call(InitiatePokedexSequenceandRivalBattle)
+    }
+    else{
+        hidemonpic
+        msgbox(Ball_Room_NotChosen)
+        closemessage
+    }
+}
+
+script InitiatePokedexSequenceandRivalBattle{
+    lock
+    delay(20)
+    applymovement(OBJ_EVENT_ID_PLAYER, TurnToProfRight)
+    if(var(VAR_TEMP_0) == 5){
+        setvar(VAR_STARTER_MON, 2)
+        applymovement(1, MoveBall1)
+    }
+    if(var(VAR_TEMP_0) == 3){
+        setvar(VAR_STARTER_MON, 0)
+        applymovement(1, MoveBall2)
+    }
+    if(var(VAR_TEMP_0) == 2){
+        setvar(VAR_STARTER_MON, 1)
+        applymovement(1, MoveBall3)
+    }
+    if(var(VAR_TEMP_0) == 4){
+        setvar(VAR_STARTER_MON, 0)
+        applymovement(1, MoveBall4)
+    }
+    waitmovement(0)
+    delay(20)
+    call(GivePokedex)
+    addobject(6)
+    setobjectxy(6, 6, 7)
+    call(RivalBattleTrigger)
+    release
+    return
+}
+
+
+script GivePokedex {
+    lock
+    msgbox(TakePokedex, MSGBOX_DEFAULT)
+    playfanfare(MUS_OBTAIN_ITEM)
+    waitfanfare
+    closemessage
+    setflag(FLAG_SYS_POKEDEX_GET)
+    setflag(FLAG_ADVENTURE_STARTED)
+    special(SetUnlockedPokedexFlags)
+    setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
+    setvar(VAR_CABLE_CLUB_TUTORIAL_STATE, 1)
+    msgbox(LittlerootTown_ProfessorBirchsLab_Text_ExplainPokedex, MSGBOX_DEFAULT)
+    call(UpgradeNationalDex)
+    msgbox("Also take these with you", MSGBOX_DEFAULT)
+    giveitem(ITEM_POKE_BALL, 5)
+    msgbox(format("These allow you to catch your own Pokemon in tall grass so you can collect research for the Pokedex"), MSGBOX_DEFAULT)
+    waitmessage
+    release
+    return
+}
+
+script UpgradeNationalDex{
+    lock
+    playfanfare(MUS_OBTAIN_ITEM)
+    message(LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational)
+    waitmessage
+    waitfanfare
+    setflag(FLAG_SYS_NATIONAL_DEX)
+    special(EnableNationalPokedex)
+    closemessage
+    release
+    return
+}
+
+movement TurnToProfRight{
+    face_right
+}
+
+movement TurnToProfLeft {
+    face_left
+}
+
+movement MoveBall1{
+    walk_left * 4
+    walk_up
+    face_player
+}
+
+movement MoveBall2{
+    walk_left * 1
+    walk_up
+    face_player
+}
+
+movement MoveBall3{
+    walk_right * 2
+    walk_up
+    face_player 
+}
+
+movement MoveBall4{
+    walk_right * 5
+    walk_up
+    face_player
+}
+
+text TakePokedex {
+    "Here, {PLAYER}, I ordered this for my\n"
+    "research, but I think you should have\l"
+    "this PokeDex."
+}
+
+movement Water {
+    walk_up * 3
+    walk_left * 4
+    face_up
+}
+
+movement Grass {
+    walk_up * 3
+    walk_left 
+    face_up
+}
+
+movement Fire{
+    walk_up * 3
+    walk_right *2
+    face_up
+}
+
+movement Legendaries {
+    walk_up * 3
+    walk_right * 5
+    face_up
+}
+script RivalBattleTrigger{
+    checkplayergender
+    goto_if_eq(VAR_RESULT, MALE, MayBattle)
+    goto_if_eq(VAR_RESULT, FEMALE, BrendanBattle)
+}
+
+script MayBattle{
+    playbgm(MUS_ENCOUNTER_MAY, TRUE)
+    if(var(VAR_TEMP_0) == 5){
+        applymovement(6, Water)
+    }
+    if(var(VAR_TEMP_0) == 3){
+        applymovement(6, Grass)
+    }
+    if(var(VAR_TEMP_0) == 2){
+        applymovement(6, Fire)
+    }
+    if(var(VAR_TEMP_0) == 4){
+        applymovement(6, Legendaries)
+    }
+    waitmovement(0)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    applymovement(6, RivalMoveUp)
+    waitmovement(0)
+    if(var(VAR_TEMP_0) == 5){
+        trainerbattle_single(TRAINER_MAY_ROUTE_103_MUDKIP, May_Intro, Route103_Text_MayDefeated, RivalBattleOver)
+    }
+    if(var(VAR_TEMP_0) == 3){
+        trainerbattle_single(TRAINER_MAY_ROUTE_103_TREECKO, May_Intro, Route103_Text_MayDefeated, RivalBattleOver)
+    }
+    if(var(VAR_TEMP_0) == 2){
+        trainerbattle_single(TRAINER_MAY_ROUTE_103_TORCHIC, May_Intro, Route103_Text_MayDefeated, RivalBattleOver)
+    }
+    if(var(VAR_TEMP_0) == 4){
+        trainerbattle_single(TRAINER_MAY_ROUTE_103_TREECKO, May_Intro, Route103_Text_MayDefeated, RivalBattleOver)
+    }
+    end
+}
+
+script BrendanBattle{
+    playbgm(MUS_ENCOUNTER_BRENDAN, TRUE)
+    if(var(VAR_TEMP_0) == 5){
+        applymovement(6, Water)
+    }
+    if(var(VAR_TEMP_0) == 3){
+        applymovement(6, Grass)
+    }
+    if(var(VAR_TEMP_0) == 2){
+        applymovement(6, Fire)
+    }
+    if(var(VAR_TEMP_0) == 4){
+        applymovement(6, Legendaries)
+    }
+    waitmovement(0)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    applymovement(6, RivalMoveUp)
+    waitmovement(0)
+    if(var(VAR_TEMP_0) == 5){
+        trainerbattle_single(TRAINER_BRENDAN_ROUTE_103_MUDKIP, May_Intro, Route103_Text_BrendanDefeated, RivalBattleOver)
+    }
+    if(var(VAR_TEMP_0) == 3){
+        trainerbattle_single(TRAINER_BRENDAN_ROUTE_103_TREECKO, May_Intro, Route103_Text_BrendanDefeated, RivalBattleOver)
+    }
+    if(var(VAR_TEMP_0) == 2){
+        trainerbattle_single(TRAINER_BRENDAN_ROUTE_103_TORCHIC, May_Intro, Route103_Text_BrendanDefeated, RivalBattleOver)
+    }
+    if(var(VAR_TEMP_0) == 4){
+        trainerbattle_single(TRAINER_BRENDAN_ROUTE_103_TORCHIC, May_Intro, Route103_Text_BrendanDefeated, RivalBattleOver)
+    }
+    end
+}
+
+script RivalBattleOver{
+    lockall
+    msgbox(BattleEnd)
+    if(var(VAR_TEMP_0) == 5){
+        applymovement(6, LeaveWater)
+    }
+    if(var(VAR_TEMP_0) == 3){
+        applymovement(6, LeaveGrass)
+    }
+    if(var(VAR_TEMP_0) == 2){
+        applymovement(6, LeaveFire)
+    }
+    if(var(VAR_TEMP_0) == 4){
+        applymovement(6, LeaveLegendaries)
+    }
+    waitmovement(0)
+    setflag(Rival_Battle_Start)
+    setvar(LITTLEROOT_STATE, 3)
+    removeobject(6)
+    releaseall
+}
+
+text BattleEnd{
+    "Well that wasn't fun.\n"
+    "I'll beat you next time."
+}
+movement RivalMoveUp {
+    walk_up    
+}
+
+movement LeaveWater {
+    walk_right * 4
+    walk_down * 4
+}
+
+movement LeaveGrass {
+    walk_right * 1
+    walk_down * 4
+}
+
+movement LeaveFire {
+    walk_left * 1
+    walk_down * 4
+}
+
+movement LeaveLegendaries {
+    walk_left * 4
+    walk_down * 4
+}
+
+text MayIntro{
+    "We'll See if you have what it takes!"
+}
+script SetBallFlag{
+    if (var(VAR_TEMP_0) == 5){
+        setflag(Starter_Ball1)
+        return
+    }
+    if (var(VAR_TEMP_0) == 3){
+        setflag(Starter_Ball2)
+        return
+    }
+    if (var(VAR_TEMP_0) == 2){
+        setflag(Starter_Ball3)
+        return
+    }
+    if (var(VAR_TEMP_0) == 4){
+        setflag(Starter_Ball4)
+        return
+    }
+}
+
+text Ball_Room_NotChosen{
+    "You did not choose {STR_VAR_1}."
+}
+
+script NicknamePartyMon{
+    msgbox("Give a nickname?", MSGBOX_YESNO)
+    hidemonpic
+    if(var(VAR_RESULT) == YES){
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+ 
+ 
+}
+ 
+text BeginAdventureText{
+"{COLOR GREEN}{SHADOW LIGHT_GREEN}Birch:{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} {PLAYER}, here's where it all begins.\p"
+"{PLAYER} select a Pokemon, \n"
+"or ask to change region. \p"
+"Also, don't forget the Pokedex!\n"
+"It's a device to keep track of Pokemon.\p"
+"Be careful, and try to {COLOR LIGHT_RED}{SHADOW RED}Catch 'Em All{COLOR DARK_GRAY}!"
+}
+
+script NicknameBoxMon{
+    msgbox("Give a nickname?", MSGBOX_YESNO)
+    hidemonpic
+    if(var(VAR_RESULT) == YES){
+        call(Common_EventScript_NameReceivedBoxMon)
+    }
+    msgbox("Transferred to PC")
+}
+ 

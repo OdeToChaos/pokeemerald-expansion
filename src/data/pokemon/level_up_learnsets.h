@@ -2566,7 +2566,7 @@ static const struct LevelUpMove sGyaradosLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sLaprasLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_SING),
+    LEVEL_UP_MOVE( 1, MOVE_SAFEGUARD),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
     LEVEL_UP_MOVE( 1, MOVE_WATER_GUN),
     LEVEL_UP_MOVE( 4, MOVE_MIST),
@@ -2574,6 +2574,7 @@ static const struct LevelUpMove sLaprasLevelUpLearnset[] = {
     LEVEL_UP_MOVE(10, MOVE_ICE_SHARD),
     LEVEL_UP_MOVE(14, MOVE_WATER_PULSE),
     LEVEL_UP_MOVE(18, MOVE_BODY_SLAM),
+    LEVEL_UP_MOVE(19, MOVE_SING),
     LEVEL_UP_MOVE(22, MOVE_RAIN_DANCE),
     LEVEL_UP_MOVE(27, MOVE_PERISH_SONG),
     LEVEL_UP_MOVE(32, MOVE_ICE_BEAM),

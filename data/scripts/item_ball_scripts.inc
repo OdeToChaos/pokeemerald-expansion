@@ -3,7 +3,7 @@ Route102_EventScript_ItemPotion::
 	end
 
 Route103_EventScript_ItemGuardSpec::
-	finditem ITEM_GUARD_SPEC
+	finditem ITEM_OLD_SEA_MAP
 	end
 
 Route103_EventScript_ItemPPUp::
@@ -147,7 +147,7 @@ Route116_EventScript_ItemPotion::
 	end
 
 Route117_EventScript_ItemGreatBall::
-	finditem ITEM_GREAT_BALL
+	finditem ITEM_EON_TICKET
 	end
 
 Route117_EventScript_ItemRevive::
@@ -315,11 +315,11 @@ MauvilleCity_EventScript_ItemXSpeed::
 	end
 
 RustboroCity_EventScript_ItemXDefend::
-	finditem ITEM_X_DEFENSE
+	finditem ITEM_AURORA_TICKET
 	end
 
 LilycoveCity_EventScript_ItemMaxRepel::
-	finditem ITEM_MAX_REPEL
+	finditem ITEM_MYSTIC_TICKET
 	end
 
 MossdeepCity_EventScript_ItemNetBall::

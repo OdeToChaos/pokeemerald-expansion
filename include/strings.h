@@ -249,6 +249,7 @@ extern const u8 gText_SaveFailed[];
 extern const u8 gText_MenuPokedex[];
 extern const u8 gText_MenuPokemon[];
 extern const u8 gText_MenuBag[];
+extern const u8 gText_MenuTeleport[];
 extern const u8 gText_MenuPokenav[];
 extern const u8 gText_MenuPlayer[];
 extern const u8 gText_MenuSave[];
@@ -3026,6 +3027,17 @@ extern const u8 gText_Summary2[];
 extern const u8 gText_PkmnForSwap[];
 extern const u8 gText_SamePkmnInPartyAlready[];
 extern const u8 gText_Cancel3[];
+extern const u8 gText_JohtoStarter[];
+extern const u8 gText_KantoStarter[];
+extern const u8 gText_HoennStarter[];
+extern const u8 gText_SinnohStarter[];
+extern const u8 gText_UnovaStarter[];
+extern const u8 gText_KalosStarter[];
+extern const u8 gText_AlolaStarter[];
+extern const u8 gText_GalarStarter[];
+
+
+
 
 // Naming Screen
 extern const u8 gText_MoveOkBack[];

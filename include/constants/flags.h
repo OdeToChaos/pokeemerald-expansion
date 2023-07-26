@@ -41,13 +41,13 @@
 #define FLAG_TEMP_1F     (TEMP_FLAGS_START + 0x1F)
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 
-#define FLAG_UNUSED_0x020    0x20 // Unused Flag
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
-#define FLAG_UNUSED_0x022    0x22 // Unused Flag
-#define FLAG_UNUSED_0x023    0x23 // Unused Flag
-#define FLAG_UNUSED_0x024    0x24 // Unused Flag
-#define FLAG_UNUSED_0x025    0x25 // Unused Flag
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
+#define Starter_Ball1    0x20 // Water selection for Ball room
+#define Starter_Ball3    0x21 // Fire selection for Ball room
+#define Starter_Ball4    0x22 // Legendary selection for Ball room
+#define Starter_Ball2    0x23 // Grass starter selection for Ball room
+#define Rival_Battle_Start    0x24 // new rival battle
+#define Rival_Battle_Exist    0x25 // Transition for LittleRoot
+#define Get_Pokedex_Birch    0x26 // New Birch Pokedex pickup point
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag
 #define FLAG_UNUSED_0x028    0x28 // Unused Flag
 #define FLAG_UNUSED_0x029    0x29 // Unused Flag
