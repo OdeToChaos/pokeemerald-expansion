@@ -1009,6 +1009,7 @@ script LittlerootTown_EventScript_NewSign {
     releaseall
 }
 
+
 script LittlerootTown_Trigger_BlockPath{
 	lockall
 	msgbox("Tall grass is scary without a pokemon.")

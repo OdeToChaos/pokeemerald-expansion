@@ -330,8 +330,8 @@ Ball_Room_EventScript_Ball3_6:
 	return
 
 Ball_Room_EventScript_Ball3_7:
-	bufferspeciesname STR_VAR_1, SPECIES_TORCHIC
-	setvar STARTER_CHOICE, SPECIES_TORCHIC
+	bufferspeciesname STR_VAR_1, SPECIES_CHIMCHAR
+	setvar STARTER_CHOICE, SPECIES_CHIMCHAR
 	call Ball_Room_EventScript_GiveStarter
 	return
 
@@ -458,6 +458,7 @@ Ball_Room_EventScript_GiveStarter_1:
 	closemessage
 Ball_Room_EventScript_GiveStarter_4:
 	closemessage
+	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	call InitiatePokedexSequenceandRivalBattle
 	return
 
