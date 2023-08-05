@@ -1022,7 +1022,7 @@ StopPlayer:
 	step_end
 
 LittlerootTown_EventScript_NewSign_Text_0:
-	.string "Ball Room$"
+	.string "Ball Room Test$"
 
 LittlerootTown_Trigger_BlockPath_Text_0:
 	.string "Tall grass is scary without a pokemon.$"
