@@ -15,7 +15,7 @@ Route101_OnFrame:
 	.2byte 0
 
 Route101_EventScript_HideMapNamePopup::
-	setvar VAR_ROUTE101_STATE, 1
+	setvar VAR_ROUTE101_STATE, 3
 	end
 
 Route101_EventScript_StartBirchRescue::
