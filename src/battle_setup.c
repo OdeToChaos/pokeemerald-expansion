@@ -548,11 +548,11 @@ void BattleSetup_StartLegendaryBattle(void)
         CreateBattleStartTask(B_TRANSITION_RAYQUAZA, MUS_VS_RAYQUAZA);
         break;
     case SPECIES_DEOXYS:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_DEOXYS);
+        CreateBattleStartTask(B_TRANSITION_BIG_POKEBALL, MUS_RG_VS_DEOXYS);
         break;
     case SPECIES_LUGIA:
     case SPECIES_HO_OH:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
+        CreateBattleStartTask(B_TRANSITION_BIG_POKEBALL, MUS_RG_VS_LEGEND);
         break;
     case SPECIES_MEW:
         CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);
@@ -832,6 +832,7 @@ u8 GetWildBattleTransition(void)
             return sBattleTransitionTable_Wild[transitionType][1];
     }
 }
+
 
 u8 GetTrainerBattleTransition(void)
 {
