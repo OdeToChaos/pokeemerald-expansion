@@ -16,7 +16,10 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_SPEAROW]               = {{EVO_LEVEL, 20, SPECIES_FEAROW}},
     [SPECIES_EKANS]                 = {{EVO_LEVEL, 22, SPECIES_ARBOK}},
     [SPECIES_PIKACHU]               = {{EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_RAICHU},
-                                       {EVO_NONE, 0, SPECIES_RAICHU_ALOLAN}},
+                                      #if P_GEN_4_POKEMON == TRUE
+                                       {EVO_ITEM_FEMALE, ITEM_THUNDER_STONE, SPECIES_RAICHU_ALOLAN}
+                                    #endif
+                                       },
     [SPECIES_SANDSHREW]             = {{EVO_LEVEL, 22, SPECIES_SANDSLASH}},
     [SPECIES_NIDORAN_F]             = {{EVO_LEVEL, 16, SPECIES_NIDORINA}},
     [SPECIES_NIDORINA]              = {{EVO_ITEM, ITEM_MOON_STONE, SPECIES_NIDOQUEEN}},
@@ -77,9 +80,15 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_VOLTORB]               = {{EVO_LEVEL, 30, SPECIES_ELECTRODE}},
     [SPECIES_VOLTORB_HISUIAN]       = {{EVO_ITEM, ITEM_LEAF_STONE, SPECIES_ELECTRODE_HISUIAN}},
     [SPECIES_EXEGGCUTE]             = {{EVO_ITEM, ITEM_LEAF_STONE, SPECIES_EXEGGUTOR},
-                                       {EVO_NONE, 0, SPECIES_EXEGGUTOR_ALOLAN}},
+                                       #if P_GEN_4_POKEMON == TRUE
+                                       {EVO_ITEM_FEMALE, ITEM_LEAF_STONE, SPECIES_EXEGGUTOR_ALOLAN}
+                                    #endif
+                                       },
     [SPECIES_CUBONE]                = {{EVO_LEVEL, 28, SPECIES_MAROWAK},
-                                       {EVO_NONE, 0, SPECIES_MAROWAK_ALOLAN}},
+                                        #if P_GEN_4_POKEMON == TRUE
+                                       {EVO_ITEM, ITEM_FIRE_STONE, SPECIES_MAROWAK_ALOLAN}
+                                    #endif
+                                       },
 #if P_GEN_4_POKEMON == TRUE
     [SPECIES_LICKITUNG]             = {{EVO_MOVE, MOVE_ROLLOUT, SPECIES_LICKILICKY}},
 #endif

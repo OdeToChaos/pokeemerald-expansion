@@ -9961,6 +9961,7 @@ static const struct LevelUpMove sDarkraiLevelUpLearnset[] = {
 
 static const struct LevelUpMove sShayminLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_GROWTH),
+    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE(10, MOVE_MAGICAL_LEAF),
     LEVEL_UP_MOVE(19, MOVE_LEECH_SEED),
     LEVEL_UP_MOVE(28, MOVE_SYNTHESIS),
